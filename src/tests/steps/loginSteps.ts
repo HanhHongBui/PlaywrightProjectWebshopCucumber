@@ -7,18 +7,22 @@ let loginPage: LoginPage;
 let homePage: HomePage
 Given('I go to Log in page', async function () {
   loginPage = new LoginPage(fixture.page);
-  await loginPage.navigate("https://demowebshop.tricentis.com/login")
+  await loginPage.navigate(`${process.env.BASEURL!}/login`)
+  await loginPage.screenshot(this);
 });
 
-When('I log in to page with username {string} and password {string}', async function (username, password) {
-  await loginPage.loginToPage(username, password)
+When('I log in to page', async function () {
+  await loginPage.loginToPage(`${process.env.EMAIL!}`, `${process.env.PASSWORD!}`)
+  await loginPage.screenshot(this);
 });
 
 When('I go to home page', async function () {
-  await loginPage.navigate("https://demowebshop.tricentis.com/")
+  await loginPage.navigate(`${process.env.BASEURL!}`)
+  await loginPage.screenshot(this);
 });
 
 Then('I see user email address displayed', async function () {
   homePage = new HomePage(fixture.page);
-  await homePage.verifyUserEmailDisplayed("superman1912@gmail.com");
+  await homePage.verifyUserEmailDisplayed(`${process.env.EMAIL!}`);
+  await homePage.screenshot(this);
 });

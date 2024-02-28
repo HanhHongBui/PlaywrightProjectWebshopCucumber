@@ -1,8 +1,12 @@
 import {Locator, Page,TestInfo,expect} from "@playwright/test";
 import CommonSelectors from './commonSelectors';
+import { IWorld } from "@cucumber/cucumber/lib/support_code_library_builder/world";
 // to store all common functions
 export abstract class BasePage {
-    constructor(readonly page: Page) { }
+    protected page: Page;
+    constructor( page: Page) { 
+        this.page = page
+    }
     
     commonSelectors = new CommonSelectors();
     async navigate(path: string) {
@@ -17,9 +21,11 @@ export abstract class BasePage {
     async wait(timeInSeconds: number) {
         await this.page.waitForTimeout(timeInSeconds);
     }
-    async screenshot(testInfo: TestInfo) {
-        const screenshotBody = await this.page.screenshot();
-        await testInfo.attach('screenshot', { body: screenshotBody, contentType: 'image/png' });
+ 
+    async screenshot(world: IWorld) {
+        await this.page.screenshot().then((screenShot) => {
+            world.attach(screenShot, 'image/png');
+        });
     }
 
     async logout() {
