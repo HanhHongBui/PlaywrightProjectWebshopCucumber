@@ -1,0 +1,28 @@
+{
+  "name": "playwrightproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js test",
+    "test-local": "npx cross-env ENV=local npx playwright test",
+    "test-prod": "npx cross-env ENV=prod npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.3.1",
+    "@playwright/test": "^1.41.1",
+    "@types/node": "^20.10.6",
+    "allure-commandline": "^2.26.0",
+    "allure-playwright": "^2.11.1",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "-": "^0.0.1",
+    "cross-env": "^7.0.3",
+    "D": "^1.0.0",
+    "dotenv": "^16.3.2"
+  }
+}
