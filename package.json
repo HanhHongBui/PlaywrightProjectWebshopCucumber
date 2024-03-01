@@ -13,7 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "@cucumber/cucumber": "^10.3.1",
-    "@playwright/test": "^1.41.1",
+    "@playwright/test": "^1.42.0",
     "@types/node": "^20.10.6",
     "allure-commandline": "^2.26.0",
     "allure-playwright": "^2.11.1",
@@ -25,6 +25,7 @@
     "cross-env": "^7.0.3",
     "D": "^1.0.0",
     "dotenv": "^16.3.2",
-    "run": "^1.5.0"
+    "run": "^1.5.0",
+    "winston": "^3.11.0"
   }
 }

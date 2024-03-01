@@ -1,6 +1,8 @@
 import { BeforeAll, AfterAll, Before, After, Status } from "@cucumber/cucumber";
 import { Browser,Page,  BrowserContext,chromium } from "@playwright/test";
 import { fixture } from "./pageFixture";
+import { createLogger } from "winston";
+import { options } from "../../utils/logger";
 import dotenv from 'dotenv';
 import path from 'path';
 let browser: Browser;
@@ -14,7 +16,12 @@ BeforeAll(async function () {
       });
 });
 
+Before(async function ({pickle }) {
+    const scenarioName = pickle.name + " "+pickle.id
+    fixture.logger =  createLogger(options(scenarioName));
+});
+
 AfterAll(async function () {
-    browser.close();
-     
+    await  browser.close();
+    fixture.logger.close();
 });

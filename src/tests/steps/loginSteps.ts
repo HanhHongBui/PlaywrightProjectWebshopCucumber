@@ -9,6 +9,7 @@ Given('I go to Log in page', async function () {
   loginPage = new LoginPage(fixture.page);
   await loginPage.navigate(`${process.env.BASEURL!}/login`)
   await loginPage.screenshot(this);
+  fixture.logger.info("Navigate to Log in page")
 });
 
 When('I log in to page', async function () {
@@ -19,6 +20,7 @@ When('I log in to page', async function () {
 When('I go to home page', async function () {
   await loginPage.navigate(`${process.env.BASEURL!}`)
   await loginPage.screenshot(this);
+  fixture.logger.info("Navigate to Homepage after Log in")
 });
 
 Then('I see user email address displayed', async function () {
