@@ -6,7 +6,9 @@
   "scripts": {
     "test-local": "cross-env ENV=local cucumber-js test ",
     "test-prod": "cross-env ENV=prod cucumber-js test",
-    "generate-report": "ts-node index.ts"
+    "generate-report": "ts-node index.ts",
+    "failedLocal": "cross-env ENV=local cucumber-js -p rerun @rerun.txt",
+    "failedProd": "cross-env ENV=prod cucumber-js -p rerun @rerun.txt"
   },
   "keywords": [],
   "author": "",

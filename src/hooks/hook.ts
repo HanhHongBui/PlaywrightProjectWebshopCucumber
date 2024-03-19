@@ -1,5 +1,5 @@
-import { BeforeAll, AfterAll, Before, After, Status } from "@cucumber/cucumber";
-import { Browser,Page,  BrowserContext,chromium } from "@playwright/test";
+import { BeforeAll, AfterAll, Before } from "@cucumber/cucumber";
+import { Browser,Page,chromium } from "@playwright/test";
 import { fixture } from "./pageFixture";
 import { createLogger } from "winston";
 import { options } from "../../utils/logger";
